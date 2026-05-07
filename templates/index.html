@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        h6 {
+            font-size: 20px;
+            color: red;
+        }
+
         .H1text {
             color: blue;
+        }
+        .h5-text {
+            font-style: italic;
+        }
+        #Headtext {
+            font-size: 50px;
+            color: orange;
+        }
+        ul li {
+            color: green;
+        }
+        input[type="text"] {
+        background-color: blue;
+        }
+         input[type="text"]:hover {
+             background-color: red;
+        }
+        a:hover {
+            color: red;
+        }
+        li::marker {
+            color: red;
+        }
+
+        ul > li:nth-child(odd) {
+            color: blue
         }
     </style>
 </head>
 <body>
-<div>
+<div class="hello">
     <h1 id="Headtext"> H1 TEXT</h1>
-    <h2 class="H1text"> H1 TEXT</h2>
+    <h2 class="H1text h5-text" > H1 TEXT</h2>
+    <h6> H6 TEXT</h6>
     <p>Paragraph</p>
-    <a href="https://google.com" target="_blank"> Hello you! <span style="color: green">text span </span>></a>
+    <a href="https://google.com" target="_blank"> Hello you!</a>
     <img alt="image" src="https://kinozal.tv/i/poster/4/0/2134440.jpg" style="width:100px">
     <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        <li>1st</li>
+        <li>2nd</li>
+        <li>3rd</li>
     </ul>
     <ol>
         <li>1</li>
@@ -27,7 +59,7 @@
         <li>3</li>
     </ol>
     <form action="/action" method="POST">
-        <input placeholder="type here">
+        <input type="text" placeholder="type here">
         <input required type="email" placeholder="email">
         <input type="password" placeholder="password">
         <textarea placeholder="text area"></textarea>
@@ -55,7 +87,17 @@
         </tr>
         </tbody>
     </table>
+    <div class="nth">
+        <p>Div text</p>
+        <p>div2</p>
+        <h6>Div3 text</h6>
+        <h5>div4</h5>
+        <p>div5</p>
+    </div>
 
+</div>
+<div class="bye">
+     <a href="https://google.com" target="_blank"> Good bye </a>
 </div>
 </body>
 </html>
