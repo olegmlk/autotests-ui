@@ -1,5 +1,9 @@
+import pytest
 from playwright.sync_api import sync_playwright, expect
 
+
+@pytest.mark.authorization
+@pytest.mark.regression
 def test_wrong_email_or_password_authorization():
     print("This test simulates an unsuccessful user authorization process with wrong email or password.")
 
