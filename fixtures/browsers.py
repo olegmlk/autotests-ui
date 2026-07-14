@@ -1,10 +1,19 @@
-from playwright.sync_api import sync_playwright
+import pytest
+from playwright.sync_api import sync_playwright, Page, Playwright
 
-with sync_playwright() as playwright:
+
+@pytest.fixture
+def chromium_page(playwright: Playwright) -> Page:
     browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
+    yield browser.new_page()
+    browser.close()
 
+
+@pytest.fixture
+def initialize_browser_state(chromium_page: Page):
+
+    page = chromium_page
+    context = page.context
     page.goto(
         "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration"
     )
@@ -27,15 +36,11 @@ with sync_playwright() as playwright:
 
     context.storage_state(path="browser-state.json")
 
-    page.wait_for_timeout(5000)
 
-with sync_playwright() as playwright:
+@pytest.fixture
+def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state="browser-state.json")
     page = context.new_page()
-
-    page.goto(
-        "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard"
-    )
-
-    page.wait_for_timeout(5000)
+    yield page
+    browser.close()

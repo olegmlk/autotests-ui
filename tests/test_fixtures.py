@@ -2,17 +2,21 @@ from symtable import Class
 
 import pytest
 
+
 @pytest.fixture(autouse=True)
 def send_analytics_data():
     print("[AUTOUSE], sending analytics data:")
+
 
 @pytest.fixture(scope="session")
 def settings():
     print("[SESSION], loading settings...")
 
+
 @pytest.fixture(scope="class")
 def user():
     print("[CLASS], creating a user instance...")
+
 
 @pytest.fixture(scope="function")
 def browser(user):

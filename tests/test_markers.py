@@ -1,40 +1,37 @@
 import pytest
 
+
 @pytest.mark.smoke
-def test_smoke_case():
-    ...
+def test_smoke_case(): ...
+
 
 # @pytest.mark.smoke
 @pytest.mark.regression
-def test_regression_case():
-    ...
+def test_regression_case(): ...
 
 
 @pytest.mark.smoke
 class TestSuite:
-    def test_case_1(self):
-        ...
-    def test_case_2(self):
-        ...
+    def test_case_1(self): ...
+    def test_case_2(self): ...
+
 
 @pytest.mark.regression
 class TestUserAuthentification:
-     @pytest.mark.smoke
-     def test_login(self):
-         ...
+    @pytest.mark.smoke
+    def test_login(self): ...
 
-     @pytest.mark.slow
-     def test_password_reset(self):
-         ...
+    @pytest.mark.slow
+    def test_password_reset(self): ...
 
-     def test_logout(self):
-         ...
+    def test_logout(self): ...
+
 
 @pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.critical
-def test_critical_login():
-    ...
+def test_critical_login(): ...
+
 
 @pytest.mark.ui
 class TestUserInterface:

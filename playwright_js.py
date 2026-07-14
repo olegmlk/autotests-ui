@@ -6,15 +6,15 @@ with sync_playwright() as playwright:
 
     page.goto(
         "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login",
-        wait_until="networkidle"
+        wait_until="networkidle",
     )
 
-    text = 'QA Automation Engineer UI Course - Authorization Page'
+    text = "QA Automation Engineer UI Course - Authorization Page"
     page.evaluate(
         f"""
         const title = document.getElementById('authentication-ui-course-title-text')
         title.textContent = '{text}'
         """
     )
-    
+
     page.wait_for_timeout(5000)

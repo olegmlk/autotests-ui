@@ -4,7 +4,9 @@ with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
     page = browser.new_page()
 
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login")
+    page.goto(
+        "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login"
+    )
 
     # unknown = page.locator('#unknown')
     # expect(unknown).to_be_visible()
@@ -13,7 +15,7 @@ with sync_playwright() as playwright:
     # login_button.fill('Unknown')
 
     page.evaluate(
-            """
+        """
             const title = document.getElementById('authentication-ui-course-title-text')
             title.textContent = 'text'
             """
