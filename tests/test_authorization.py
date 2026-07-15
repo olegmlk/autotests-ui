@@ -43,4 +43,4 @@ def test_wrong_email_or_password_authorization(login_page: LoginPage, email: str
     # )
     # expect(wrong_email_or_password_alert).to_be_visible()
     # expect(wrong_email_or_password_alert).to_have_text("Wrong email or password")
-    chromium_page.wait_for_timeout(2000)
+    login_page.page.wait_for_timeout(2000)
